@@ -1,5 +1,6 @@
 console.log("Conectando...");
-const Discord = requeri("discord.js");
+const Discord = require("discord.js");
+bot = new Discord.Client();
 
 const PREFIX = "";
 
@@ -29,7 +30,7 @@ bot.on("message", async message => {
         
     }
 
-    }
+    
     
         if(cmd === `${prefix}ban`){
         let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
