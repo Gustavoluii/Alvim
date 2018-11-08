@@ -2,7 +2,7 @@ console.log("Conectando...");
 const Discord = require("discord.js");
 bot = new Discord.Client();
 
-const PREFIX = "";
+const PREFIX = "!";
 
 bot.login(process.env.TOKEN);
 
