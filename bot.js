@@ -10,7 +10,7 @@ bot.login(process.env.TOKEN);
 bot.on("ready", async => {
     console.log(`${bot.user.username} Conectado com sucesso!`)
     console.log(`${bot.user.id}`)
-    bot.user.setPresence({ status: 'STREAMING', game: { name: `siteaq`, url: "https://www.twitch.tv/gustavoluii"}});
+    bot.user.setPresence({ status: 'STREAMING', game: { name: `shop.alvim.com`, url: "https://www.twitch.tv/gustavoluii"}});
 });
 
 //commands & events//
