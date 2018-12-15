@@ -17,8 +17,8 @@ bot.on("ready", async => {
     setInterval(function() {
     let statusale = ["Minecraft Original", "Minecraft Original"];
     let status = statusale[Math.floor(Math.random()*statusale.length)];
-    bot.user.setPresence({ status: 'STREAMING', game: { name: status, url: "https://www.twitch.tv/gustavoluii"}});
-    bot.user.setPresence({ status: 'STREAMING', game: { name: status, url: "https://www.twitch.tv/gustavoluii"}});
+    bot.user.setPresence({ status: 'STREAMING', game: { name: status, url: "https://www.twitch.tv/zjvplays"}});
+    bot.user.setPresence({ status: 'STREAMING', game: { name: status, url: "https://www.twitch.tv/zjvplays"}});
     }, 60000)
 });
 
