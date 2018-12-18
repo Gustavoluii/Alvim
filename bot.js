@@ -70,61 +70,6 @@ if(cmd === `${prefix}avatar`){
     message.channel.send(skinembed);
 
 }
-
-        if(cmd === `${prefix}a`){
-        message.channel.send(new Discord.RichEmbed().setColor(COR).setDescription("**Está com problemas ou dúvidas? clique na reação que deseja e aguarde o suporte.**\n\n:Steve: - Problemas com a sua conta.\n:Boleto: - Problemas com compras\n:Cliente: Solicitar TAG cliente.\n:form: Outras dúvidas.")).then(async msg => {
-            const emoji = bot.emojis.find(c => c.name == "Steve");
-            const emoji2 = bot.emojis.find(c => c.name == "Boleto");
-            const emoji3 = bot.emojis.find(c => c.name == "Cliente");
-            const emoji4 = bot.emojis.find(c => c.name == "form");
-            await msg.react(emoji)
-            await msg.react(emoji2)
-            await msg.react(emoji3)
-            await msg.react(emoji4)
-            const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "Steve", "Boleto", "Cliente", "form" && u.id === message.author.id))
-            collector.on("collect", async r => {
-                let title
-                switch (r.emoji.name) {
-                    case "Steve":
-                        title = "Conta"
-                        break
-                    case "Boleto":
-                        title = "Pagamentos"
-                        break
-                    case "Cliente":
-                        title = "Cliente"
-                        break
-                    case "form":
-                        title = "Dúvidas"
-                }
-
-                let category = message.guild.channels.find(c => c.name === "tickets")
-                if (!category || category.type !== "category")
-                    category = await message.guild.createChannel("tickets", "category")
-                let channel = await message.guild.createChannel(`ticket-${title}`, "text", [{
-                    id: bot.user.id,
-                    allowed: ["VIEW_CHANNEL", "MANAGE_CHANNELS"]
-                }, {
-                    id: message.author.id,
-                    allowed: ["VIEW_CHANNEL", "SEND_MESSAGES"]
-                }, {
-                    id: message.guild.roles.find(c => c.name === "👤 Suporte").id,
-                    allowed: ["VIEW_CHANNEL", "SEND_MESSAGES"]
-                }, {
-                    id: message.guild.defaultRole.id,
-                    denied: Discord.Permissions.ALL
-                }])
-                await channel.setParent(category.id)
-            })
-        })
-    }
-    
-    if(cmd === `${prefix}fecharticket`){
-        if (message.member.hasPermission("MANAGE_MESSAGES")){
-        message.channel.delete();
-        }
-    }
-    
     
     if(cmd === `${prefix}ban`){
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
